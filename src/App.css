@@ -1,0 +1,4 @@
+.d--radial-progress::after {
+  /* display: none !important; */
+  position: static;
+}
