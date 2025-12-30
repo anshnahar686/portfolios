@@ -1,3 +1,4 @@
+import first from '../assets/logo.png'
 export const Footer = () => {
     const icons=[{icon:'ri-facebook-circle-fill',tooltip:'facebook'},{icon:'ri-twitter-x-fill',tooltip:'twitter'},{icon:'ri-telegram-fill',tooltip:'telegram'},{icon:'ri-whatsapp-line',tooltip:'whatsapp'},{icon:'ri-linkedin-box-fill',tooltip:'linkedin-box'},{icon:'ri-github-fill',tooltip:'github'}]
   return (
@@ -8,7 +9,7 @@ export const Footer = () => {
 
     
         <h1 className="text-4xl font-medium text-white/80 mb-6">
-          LOGO
+         <img src={first} className='h-40 w-auto object-cover mx-auto'/>
         </h1>
 
       
