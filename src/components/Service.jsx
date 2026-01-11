@@ -1,10 +1,15 @@
+
+
 export const Services = () => {
+  
   return (
     <>
-      <section className="mt-[100px]">
+      <section className="mt-[100px]"  id="Services">
         <div className="bg-[#FBFBFB] my-2 min-h-screen py-4">
-          <div className="text-center my-2 text-4xl ">
-            <h1 className="text-4xl">Services</h1>
+          <div className="text-center my-2 text-4xl  ">
+            <h1 className="text-4xl" >
+              Services
+            </h1>
             <p className="mt-3 mb-[30px] text-2xl font-serif ">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptatum, aut.

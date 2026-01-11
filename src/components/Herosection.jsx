@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TypeAnimation } from 'react-type-animation'
 
 export const HeroSection = () => {
   //  const [counter, setCounter] = useState(29);
@@ -13,7 +14,20 @@ export const HeroSection = () => {
               className="max-w-sm rounded-lg shadow-2xl"
             />
             <div>
-              <h3 className="text-3xl my-3 mx-3">Hi I am ,</h3>
+              <h3 className="text-3xl my-3 mx-3"><TypeAnimation
+  sequence={[
+  'Hi I am', 1000, // wait 1s
+        'Yash Nahar', 1000,
+        'We produce food for Guinea Pigs', 1000,
+       
+
+   
+  ]}
+  speed={50}
+  style={{ fontSize: '2em' }}
+  repeat={Infinity}
+/>
+</h3>
               <h1 className="text-6xl font-regular font-sans mx-2 my-3">
                 Yash Kumar
               </h1>
@@ -72,6 +86,7 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
+    
     </>
   );
 };

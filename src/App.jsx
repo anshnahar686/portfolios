@@ -10,7 +10,7 @@ import { Blocks } from "react-loader-spinner";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
       setloading(false);
