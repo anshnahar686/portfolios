@@ -36,7 +36,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
-        <div className="@container">
+        <div className="@container min-h-full p-0 m-0">
           <Routes>
             <Route path="/" element={<LandingPage/>} />
           

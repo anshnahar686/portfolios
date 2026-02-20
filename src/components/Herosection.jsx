@@ -1,92 +1,164 @@
-import { useState } from "react";
-import { TypeAnimation } from 'react-type-animation'
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { use, useRef } from "react";
+import { TypeAnimation } from "react-type-animation";
 
 export const HeroSection = () => {
-  //  const [counter, setCounter] = useState(29);
+  const container = useRef(null);
+  const counterRef = useRef(null);
+  const secondRef=useRef(null)
+  const thirdRef=useRef(null)
   const counter = 23;
-  return (
-    <>
-      <div className="-my-[100px] bg-[#FBFBFB]" id="herosection">
-        <div className="d--hero bg-base-200 min-h-screen ">
-          <div className="d--hero-content flex-col lg:flex-row-reverse my-0">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-              className="max-w-sm rounded-lg shadow-2xl"
-            />
-            <div>
-              <h3 className="text-3xl my-3 mx-3"><TypeAnimation
-  sequence={[
-  'Hi I am', 1000, // wait 1s
-        'Yash Nahar', 1000,
-        'We produce food for Guinea Pigs', 1000,
-       
+  const secondRefs=30
+  const thirdRefs=40;
 
-   
-  ]}
-  speed={50}
-  style={{ fontSize: '2em' }}
-  repeat={Infinity}
-/>
-</h3>
-              <h1 className="text-6xl font-regular font-sans mx-2 my-3">
-                Yash Kumar
-              </h1>
-              <h1 className="text-7xl font-sans mx-2 my-3 ">Web Developer</h1>
-              <p className="py-4 pe-[200px] ps-4 font-regular text-[18px] my-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-                possimus adipisci est inventore! Praesentium recusandae eius
-                quisquam exercitationem expedita quis nostrum quo culpa rerum
-                mollitia, voluptate officiis obcaecati vitae omnis perspiciatis?
-                Magni reprehenderit placeat eos delectus dolorem maxime,
-                possimus consectetur.
-              </p>
-              <button
-                className="d--btn w-[210px] h-[45px] mx-4 rounded-xl bg-[#8186E7] text-white text-lg  lg:flex-row-reverse"
-                style={{ boxShadow: "1px 2px 2px 2px rgba(0, 0, 0, 0.20)" }}
-              >
-                Get Started
-              </button>
-              <button
-                className="d--btn w-[210px] h-[45px] mx-4 rounded-xl bg-[#8186E7] text-white text-lg  lg:flex-row-reverse"
-                style={{ boxShadow: "1px 2px 2px 2px rgba(0, 0, 0, 0.20)" }}
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="flex bg-base-200  -my-[70px] mx-3 items-center w-[65%] justify-between px-5">
-          <div className="my-2 mx-3 ">
-            <h3 className="text-center text-5xl font-bold ms-3 ">
-              <span className="d--countdown font-mono text-6xl ">
-                <span
-                  style={{ "--d--value": counter, "d--digits": 2 }}
-                  aria-live="polite"
-                  aria-label={String(counter)}
-                >
-                  {counter}
-                </span>
-              </span>
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      // Image animation
+      tl.from(".hero-img", {
+        x: 100,
+        opacity: 0,
+        duration: 1,
+      });
+
+      // Text stagger animation
+      tl.from(
+        ".hero-text > *",
+        {
+          y: 50,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 0.8,
+        },
+        "-=0.5"
+      );
+
+      // Button animation
+      tl.from(
+        ".hero-btn",
+        {
+          scale: 0.8,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 0.6,
+        },
+        "-=0.4"
+      );
+
+      // Counter animation
+      gsap.fromTo(
+        counterRef.current,
+        { innerText: 0 },
+        {
+          innerText: counter,
+          duration: 2,
+          snap: { innerText: 1 },
+          ease: "power1.out",
+        }
+      );
+      gsap.fromTo(
+        thirdRef.current,
+        { innerText: 0 },
+        {
+          innerText: thirdRefs,
+          duration: 2,
+          snap: { innerText: 1 },
+          ease: "power1.out",
+        }
+      );
+         gsap.fromTo(
+        secondRef.current,
+        { innerText: 0 },
+        {
+          innerText:secondRefs,
+          duration: 2,
+          snap: { innerText: 1 },
+          ease: "power1.out",
+        }
+      );
+
+    },
+    { scope: container }
+  );
+
+  return (
+    <div ref={container} className="-my-[100px] bg-[#FBFBFB]" id="herosection">
+      <div className="d--hero bg-base-200 min-h-screen">
+        <div className="d--hero-content flex-col lg:flex-row-reverse my-0">
+          
+          {/* Image */}
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            className="hero-img max-w-sm rounded-lg shadow-2xl"
+          />
+
+          {/* Text Content */}
+          <div className="hero-text">
+            <h3 className="text-3xl my-3 mx-3">
+              <TypeAnimation
+                sequence={[
+                  "Hi I am",
+                  1000,
+                  "Yash Nahar",
+                  1000,
+                  "Web Developer",
+                  1000,
+                ]}
+                speed={50}
+                repeat={Infinity}
+              />
             </h3>
-            <label className="text-center text-[#A1A1A1] font-light text-md">
-              Work Experience
-            </label>
-          </div>
-          <div className="justify-between">
-            <h3 className="text-center text-5xl font-bold ms-3">12+</h3>
-            <label className="text-center text-[#A1A1A1] font-light text-md ms-2">
-              Total Clients
-            </label>
-          </div>
-          <div className="justify-items-center">
-            <h3 className="text-center text-5xl font-bold ms-3">12+</h3>
-            <label className="text-center text-[#A1A1A1] font-light text-md ms-2">
-              Project Done
-            </label>
+
+            <h1 className="text-6xl mx-2 my-3">Yash Kumar</h1>
+            <h1 className="text-7xl mx-2 my-3">Web Developer</h1>
+
+            <p className="py-4 pe-[200px] ps-4 text-[18px] my-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Quidem possimus adipisci est inventore!
+            </p>
+
+            <button className="hero-btn d--btn w-[210px] h-[45px] mx-4 rounded-xl bg-[#8186E7] text-white text-lg">
+              Get Started
+            </button>
+
+            <button className="hero-btn d--btn w-[210px] h-[45px] mx-4 rounded-xl bg-[#8186E7] text-white text-lg">
+              Contact Me
+            </button>
           </div>
         </div>
       </div>
-    
-    </>
+
+      {/* Counter Section */}
+      <div className="flex bg-base-200 -my-[70px] mx-3 items-center w-[65%] justify-between px-5">
+        <div>
+          <h3 className="text-5xl font-bold">
+            <span ref={counterRef}>0</span>+
+          </h3>
+          <label className="text-[#A1A1A1] font-light text-md">
+            Work Experience
+          </label>
+        </div>
+
+        <div>
+          <h3 className="text-5xl font-bold">
+            <span ref={secondRef}>0</span>+
+            </h3>
+          <label className="text-[#A1A1A1] font-light text-md">
+            Total Clients
+          </label>
+        </div>
+
+      <div>
+          <h3 className="text-5xl font-bold">
+            <span ref={thirdRef}>0</span>+
+            </h3>
+          <label className="text-[#A1A1A1] font-light text-md">
+           Prorjects Done
+          </label>
+        </div>
+      </div>
+    </div>
   );
 };
