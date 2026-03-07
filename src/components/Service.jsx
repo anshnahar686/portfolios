@@ -102,7 +102,7 @@ export const Services = () => {
           </div>
           <div className="flex justify-between flex-wrap  items-center my-4 mx-2 ">
             <div
-              className="d--card w-85 bg-base-100 d--card-md shadow-lg !bg-[#DBDBDB] ms-10 px-2 my-5 !rounded-xl me-4 "
+              className="d--card w-full lg:w-85 bg-base-100 d--card-md shadow-lg !bg-[#DBDBDB] ms-10 px-2 my-5 !rounded-xl me-4 "
               ref={(el) => (cards.current[0] = el)}
             >
               <div className="d--card-body">

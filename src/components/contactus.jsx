@@ -1,121 +1,256 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef } from "react";
+
 export const Contactus = () => {
+  const section = useRef(null);
+  const heading = useRef(null);
+  const secondheading = useRef(null);
+  const paragraph = useRef(null);
+  const left_side = useRef(null);
+  const right_side = useRef(null);
+  const details=useRef([])
+  const formRef = useRef([]);
+  const labelRef = useRef([]);
+  const buttonRef = useRef(null);
+  console.log(formRef)
+  useGSAP(
+    () => {
+      gsap.from(heading.current, {
+        opacity: 0,
+        y: -30,
+        duration: 6,
+        delay:3,
+        scrollTrigger: {
+          trigger: section.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+          markers: true,
+        },
+      });
+      gsap.from(secondheading.current, {
+        opacity: 0,
+        y: -30,
+        duration: 6,
+         delay:3,
+        scrollTrigger: {
+          trigger: section.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+          markers: true,
+        },
+      });
+      gsap.from(left_side.current, {
+        opacity:0,
+        x:-900,
+        duration:3,
+          scrollTrigger: {
+          trigger: section.current,
+          start: "top 80%",
+          toggleActions: "play play none reverse",
+          markers: true,
+        },
+      });
+      gsap.from(right_side.current,{
+            opacity:0,
+        x:900,
+        duration:3,
+
+          scrollTrigger: {
+          trigger: section.current,
+          start: "top 80%",
+          toggleActions: "play play none reverse",
+          markers: true,
+        },
+      })
+      gsap.from(paragraph.current, {
+        opacity: 0,
+        x: -80,
+        duration: 6,
+        delay:3,
+        scrollTrigger: {
+          trigger: section.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+          markers: true,
+        },
+      });
+      details.current.forEach((el, i) => {
+      gsap.from(el, {
+        y: -50,
+        opacity: 0,
+        duration:6,
+        delay:3,
+        stagger:0.5,
+         scrollTrigger: {
+          trigger: section.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+          markers: true,
+        },
+      });
+    });
+
+formRef.current.forEach(element => {
+   gsap.from(element, {
+        y: -50,
+        opacity: 0,
+        duration:6,
+        delay:3,
+        stagger:0.5,
+         scrollTrigger: {
+          trigger: section.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+          markers: true,
+        },
+      });
+});
+gsap.from(buttonRef.current,{
+  y:-300,
+  duration:6,
+  delay:3,
+  opacity:0,
+  scrollTrigger: {
+          trigger: section.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+          markers: true,
+        },
+})
+        
+    },
+    { scope: section },
+  );
+console.log(details)
   return (
     <>
-    <section>
-      <div className="bg-[#FBFBFB] my-2 min-h-screen py-4">
-        <div class="grid grid-flow-row grid-cols-2 gap-4">
-          <div className=" my-3">
-            <h1 className="mx-4 px-4 py-3 text-5xl font-semibold">ContactUs</h1>
-            <p className="mx-5 px-4 text-justify text-xl my-3 font-normal">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Consequuntur facere unde, voluptatum similique vel explicabo ab
-              ipsam recusandae laboriosam, tenetur perspiciatis est voluptas
-              quibusdam, quidem beatae molestiae at odit provident?
+      <section className="min-h-screen py-12 px-4 overflow-hidden" ref={section}>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+       
+          <div className="bg-white rounded-2xl shadow-xl p-10" ref={left_side}>
+            <h1 className="text-4xl font-bold text-gray-800 mb-4" ref={heading}>
+              Contact Us
+            </h1>
+
+            <p
+              className="text-gray-500 text-lg mb-8 leading-relaxed"
+              ref={paragraph}
+            >
+              We'd love to hear from you. Send us your query and we will respond
+              as soon as possible.
             </p>
-            <div className="flex mx-5 px-4">
-              <div className="my-5">
-                <div className="w-[60px] h-[60px] flex items-center justify-center rounded-full bg-[#E0C5273D] hover:bg-[#e0c527e0] transition  ">
-                  <i class="ri-mail-line text-2xl text-[#B33737]  "></i>
+
+            {/* CONTACT ITEMS */}
+            <div className="space-y-6" >
+              {/* Email */}
+              <div className="flex items-center gap-4 group" ref={el => details.current[0] = el} >
+                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-100 group-hover:bg-yellow-400 transition" >
+                  <i className="ri-mail-line text-2xl text-red-500"></i>
                 </div>
-                <div className="w-[60px] h-[60px] flex items-center justify-center rounded-full bg-[#E0C5273D] hover:bg-[#e0c527e0] transition my-5">
-                  <i class="ri-phone-fill text-2xl text-[#294BD2]"></i>
-                </div>
-                <div className="w-[60px] h-[60px] flex items-center justify-center rounded-full bg-[#E0C5273D] hover:bg-[#e0c527e0] transition my-5">
-                  <i class="ri-whatsapp-line  text-2xl text-[#30D94F]"></i>
-                </div>
+
+                <a
+                  href="mailto:naharansh489@gmail.com"
+                  className="text-lg text-gray-700 hover:text-blue-600 transition"
+                >
+                  naharansh489@gmail.com
+                </a>
               </div>
-              <div className="my-5">
-                <div className="my-3 mx-4 self-center text-2xl">
-                  <a href="mailto:naharansh489@gmail.com" className="">
-                    naharansh489@gmail.com
-                  </a>
+
+              {/* Phone */}
+              <div className="flex items-center gap-4 group" ref={el => details.current[1] = el}>
+                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-100 group-hover:bg-yellow-400 transition">
+                  <i className="ri-phone-fill text-2xl text-blue-600"></i>
                 </div>
-                <div className="my-5">
-                  <div className="my-[50px] mx-4 self-center text-2xl">
-                    <a href="telto:naharansh489@gmail.com" className="">
-                      xxxxxxxxxx
-                    </a>
-                  </div>
+
+                <a
+                  href="tel:9999999999"
+                  className="text-lg text-gray-700 hover:text-blue-600 transition"
+                >
+                  +91 99999 99999
+                </a>
+              </div>
+
+              {/* WhatsApp */}
+              <div className="flex items-center gap-4 group" ref={el => details.current[2] = el}>
+                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-yellow-100 group-hover:bg-yellow-400 transition">
+                  <i className="ri-whatsapp-line text-2xl text-green-500"></i>
                 </div>
-                <div className="my-5">
-                  <div className="my-[50px] mx-4 self-center text-2xl ">
-                    <a href="telto:naharansh489@gmail.com" className="">
-                      xxxxxxxxxx
-                    </a>
-                  </div>
-                </div>
+
+                <a
+                  href="https://wa.me/919999999999"
+                  className="text-lg text-gray-700 hover:text-green-600 transition"
+                >
+                  WhatsApp Chat
+                </a>
               </div>
             </div>
           </div>
-          <div className=" my-3 px-5">
-            <form action="" method="post" >
-              <div className="flex justify-start items-center mx-5 mt-3">
-                <label
-                  htmlFor=""
-                  className="mx-3 text-xl my-3 text-md text-[#243c6bb8]"
-                >
-                  Name
-                </label>
-              </div>
-              <div className="flex justify-start items-center">
+
+        
+          <div className="bg-white rounded-2xl shadow-xl p-10" ref={right_side}>
+            <h2
+              className="text-3xl font-semibold text-gray-800 mb-6"
+              ref={secondheading}
+            >
+              Send Message
+            </h2>
+
+            <form className="space-y-5">
+             
+              <div ref={el =>formRef.current[0]=el}>
+                <label className="block text-gray-600 mb-1">Name</label>
                 <input
                   type="text"
-                  name=""
-                  id=""
-                  className="bg-white mx-8 w-120 h-10 border border-[#2121214a]  shadow-md rounded-lg px-3  text-xl"
+                  className="w-full h-12 px-4 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                  placeholder="Enter your name"
+                 
                 />
               </div>
-              <div className="flex justify-start items-center mx-5 mt-5">
-                <label
-                  htmlFor=""
-                  className="mx-3 text-xl my-3 text-md text-[#243c6bb8]"
-                >
-                  Email
-                </label>
-              </div>
-              <div className="flex justify-start items-center">
+
+            
+              <div ref={el =>formRef.current[1]=el}>
+                <label className="block text-gray-600 mb-1" >Email</label>
                 <input
                   type="email"
-                  name=""
-                  id=""
-                  className="bg-white mx-8 w-120 h-10 border border-[#2121214a]  shadow-md rounded-lg px-3  text-xl"
+                  className="w-full h-12 px-4 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                  placeholder="Enter your email"
+                 
                 />
               </div>
-              <div className="flex justify-start items-center mx-5 mt-5">
-                <label
-                  htmlFor=""
-                  className="mx-3 text-xl my-3 text-md text-[#243c6bb8]"
-                >
-                  PhoneNumber
-                </label>
-              </div>
-              <div className="flex justify-start items-center">
+
+              
+              <div ref={el =>formRef.current[2]=el}>
+                <label className="block text-gray-600 mb-1" >Phone</label>
                 <input
                   type="text"
-                  name=""
-                  id=""
-                  className="bg-white mx-8 w-120 h-10 border border-[#2121214a]  shadow-md rounded-lg px-3  text-xl"
+                  className="w-full h-12 px-4 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                  placeholder="Enter phone number"
+                 
                 />
               </div>
-              <div className="flex justify-start items-center mx-5 mt-5">
-                <label
-                  htmlFor=""
-                  className="mx-3 text-xl my-3 text-md text-[#243c6bb8]"
-                >
-                  Message
-                </label>
+
+              
+              <div ref={el =>formRef.current[3]=el} >
+                <label className="block text-gray-600 mb-1" >Message</label>
+                <textarea
+                  className="w-full h-32 px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition resize-none"
+                  placeholder="Write your message"
+                ></textarea>
               </div>
-              <div className="flex justify-start items-center">
-                <textarea name="" id="" className="bg-white mx-8 w-130 h-40 border border-[#2121214a]  shadow-md rounded-lg px-3  text-xl resize-none"></textarea>
-              </div>
-              <div className="flex">
-                   <button type="submit" className="my-5 justify-center w-90 border border-none shadow-xl mx-auto px-3 py-3 rounded-lg text-2xl d--btn d--btn-info">Submit</button>
-              </div>
-             
+
+              
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-lg text-lg font-semibold shadow-lg hover:scale-105 hover:shadow-xl transition"
+                ref={buttonRef}
+              >
+                Send Message
+              </button>
             </form>
+            
           </div>
         </div>
-      </div>
       </section>
     </>
   );

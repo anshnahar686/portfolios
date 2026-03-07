@@ -1,287 +1,140 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import Slider from "react-slick";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const Testinomial = () => {
   const section = useRef(null);
   const heading = useRef(null);
   const slider = useRef(null);
-  // gsap.registerPlugin(useGSAP,scrollTrigger)
+
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 2,
-    slidesToScroll: 2,
-    width: 100,
+    slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2500,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
+
   useGSAP(
     () => {
       gsap.from(heading.current, {
-        y: -100,
+        y: -80,
         opacity: 0,
-        duration: 3,
+        duration: 1.2,
         scrollTrigger: {
           trigger: section.current,
-          start: "top 90%",
-          toggleActions: "play none none reverse",
-          markers: true,
+          start: "top 80%",
         },
-        yoyo: 3,
-        ease: "power1.out",
       });
+
       gsap.from(slider.current, {
+        y: 120,
         opacity: 0,
-        y: 900,
-        duration: 4,
+        duration: 1.5,
         scrollTrigger: {
           trigger: section.current,
-          start: "top 100%",
-          toggleActions: "play none none reverse",
-          markers: true,
+          start: "top 80%",
         },
-        ease: "power1.out",
       });
     },
     { scope: section },
   );
-  return (
-    <>
-      <section className="my-[60px]" ref={section}>
-        <div className=" my-2  mx-auto py-4  max-w-7xl w-full">
-          <div className="text-center my-2 text-4xl" ref={heading}>
-            <h1 className="text-4xl my-5">What Our Client's Say</h1>
-            <p className="mt-3 mb-[30px] text-2xl font-serif ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatum, aut.
-            </p>
-          </div>
 
-          <div className="slider-container " ref={slider}>
-            <Slider {...settings}>
-              <div className="me-[200px]">
-                <div className="d--card w-full bg-base-100 d--card-md shadow-sm px-4 ms-4">
-                  <div className="d--card-body">
-                    <p className="text-xl text-justfiy  font-sans text-[#00000094] ">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quia inventore fugit ducimus, eius suscipit sunt qui.
-                      Temporibus ipsam assumenda quidem illum cupiditate facere
-                    </p>
-                    <div className="justify-center d--card-actions my-3">
-                      <div className="d--avatar ">
-                        <div className="w-17 rounded-full ">
-                          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <h3 className="font-bold text-lg">John Deo</h3>
-                      <h4 className="text-sm text-[#00000094]">
-                        CEO, XYZ Company
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mx-5">
-                <div className="d--card w-full bg-base-100 d--card-md shadow-sm px-4 ms-4">
-                  <div className="d--card-body">
-                    <p className="text-xl text-justfiy  font-sans text-[#00000094] ">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quia inventore fugit ducimus, eius suscipit sunt qui.
-                      Temporibus ipsam assumenda quidem illum cupiditate facere
-                    </p>
-                    <div className="justify-center d--card-actions my-3">
-                      <div className="d--avatar ">
-                        <div className="w-17 rounded-full ">
-                          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <h3 className="font-bold text-lg">John Deo</h3>
-                      <h4 className="text-sm text-[#00000094]">
-                        CEO, XYZ Company
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ms-[50px]">
-                <div className="d--card w-full bg-base-100 d--card-md shadow-sm px-4 ms-4">
-                  <div className="d--card-body">
-                    <p className="text-xl text-justfiy  font-sans text-[#00000094] ">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quia inventore fugit ducimus, eius suscipit sunt qui.
-                      Temporibus ipsam assumenda quidem illum cupiditate facere
-                    </p>
-                    <div className="justify-center d--card-actions my-3">
-                      <div className="d--avatar ">
-                        <div className="w-17 rounded-full ">
-                          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <h3 className="font-bold text-lg">John Deo</h3>
-                      <h4 className="text-sm text-[#00000094]">
-                        CEO, XYZ Company
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mx-[90px]">
-                <div className="d--card w-full bg-base-100 d--card-md shadow-sm px-4 ms-4">
-                  <div className="d--card-body">
-                    <p className="text-xl text-justfiy  font-sans text-[#00000094] ">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quia inventore fugit ducimus, eius suscipit sunt qui.
-                      Temporibus ipsam assumenda quidem illum cupiditate facere
-                    </p>
-                    <div className="justify-center d--card-actions my-3">
-                      <div className="d--avatar ">
-                        <div className="w-17 rounded-full ">
-                          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <h3 className="font-bold text-lg">John Deo</h3>
-                      <h4 className="text-sm text-[#00000094]">
-                        CEO, XYZ Company
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ms-[50px]">
-                <div className="d--card w-full bg-base-100 d--card-md shadow-sm px-4 ms-4">
-                  <div className="d--card-body">
-                    <p className="text-xl text-justfiy  font-sans text-[#00000094] ">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quia inventore fugit ducimus, eius suscipit sunt qui.
-                      Temporibus ipsam assumenda quidem illum cupiditate facere
-                    </p>
-                    <div className="justify-center d--card-actions my-3">
-                      <div className="d--avatar ">
-                        <div className="w-17 rounded-full ">
-                          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <h3 className="font-bold text-lg">John Deo</h3>
-                      <h4 className="text-sm text-[#00000094]">
-                        CEO, XYZ Company
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mx-[90px]">
-                <div className="d--card w-full bg-base-100 d--card-md shadow-sm px-4 ms-4">
-                  <div className="d--card-body">
-                    <p className="text-xl text-justfiy  font-sans text-[#00000094] ">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quia inventore fugit ducimus, eius suscipit sunt qui.
-                      Temporibus ipsam assumenda quidem illum cupiditate facere
-                    </p>
-                    <div className="justify-center d--card-actions my-3">
-                      <div className="d--avatar ">
-                        <div className="w-17 rounded-full ">
-                          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <h3 className="font-bold text-lg">John Deo</h3>
-                      <h4 className="text-sm text-[#00000094]">
-                        CEO, XYZ Company
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ms-[50px]">
-                <div className="d--card w-full bg-base-100 d--card-md shadow-sm px-4 ms-4">
-                  <div className="d--card-body">
-                    <p className="text-xl text-justfiy  font-sans text-[#00000094] ">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quia inventore fugit ducimus, eius suscipit sunt qui.
-                      Temporibus ipsam assumenda quidem illum cupiditate facere
-                    </p>
-                    <div className="justify-center d--card-actions my-3">
-                      <div className="d--avatar ">
-                        <div className="w-17 rounded-full ">
-                          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <h3 className="font-bold text-lg">John Deo</h3>
-                      <h4 className="text-sm text-[#00000094]">
-                        CEO, XYZ Company
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mx-[90px]">
-                <div className="d--card w-full bg-base-100 d--card-md shadow-sm px-4 ms-4">
-                  <div className="d--card-body">
-                    <p className="text-xl text-justfiy  font-sans text-[#00000094] ">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quia inventore fugit ducimus, eius suscipit sunt qui.
-                      Temporibus ipsam assumenda quidem illum cupiditate facere
-                    </p>
-                    <div className="justify-center d--card-actions my-3">
-                      <div className="d--avatar ">
-                        <div className="w-17 rounded-full ">
-                          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <h3 className="font-bold text-lg">John Deo</h3>
-                      <h4 className="text-sm text-[#00000094]">
-                        CEO, XYZ Company
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ms-[50px]">
-                <div className="d--card w-full bg-base-100 d--card-md shadow-sm px-4 ms-4">
-                  <div className="d--card-body">
-                    <p className="text-xl text-justfiy  font-sans text-[#00000094] ">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quia inventore fugit ducimus, eius suscipit sunt qui.
-                      Temporibus ipsam assumenda quidem illum cupiditate facere
-                    </p>
-                    <div className="justify-center d--card-actions my-3">
-                      <div className="d--avatar ">
-                        <div className="w-17 rounded-full ">
-                          <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <h3 className="font-bold text-lg">John Deo</h3>
-                      <h4 className="text-sm text-[#00000094]">
-                        CEO, XYZ Company
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Slider>
-          </div>
+  const testimonials = [
+    {
+      text: "This dashboard has completely transformed how we manage our sales data. The validation rules prevent errors, and the interface is so intuitive that even new team members pick it up quickly. Truly a lifesaver for our business.",
+      name: "John Deo",
+      role: "Managing Director, BrightPath Solutions",
+      img: "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+    },
+    {
+      text: "The export and analytics features are outstanding. We can now generate reports in seconds, and the clarity of the labels makes them easy to understand for non-technical staff. It’s exactly what we needed." ,
+      name: "Priya Sharma",
+      role: "CEO, BrightPath Solutions",
+      img: "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+    },
+    {
+      text: "I appreciate how responsive the team was during development. They anticipated issues before they became problems and provided clear, business-friendly error messages. It’s rare to find such a balance of technical expertise and user focus. ",
+      name: "Arjun Patel ",
+      role: "Founder & CTO, Skyline Innovations",
+      img: "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+    },
+    {
+      text: "From schema design to deployment, everything was handled with precision. The sample test data they provided helped us stress-test the system before launch, which gave us confidence in its reliability.",
+      name: "Sneha Kapoor",
+      role: "Head of Operations, NextWave Technologies",
+      img: "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+    },
+    {
+      text: "I’ve worked with many tools, but this one stands out. The UI feels polished, the spacing and layout are consistent, and the backend constraints ensure compliance with GST and payment rules. It’s both robust and user-friendly.",
+      name: "John Deo",
+      role: "Director of Product Development, Vertex Solutions",
+      img: "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+    },
+  ];
+
+  return (
+    <section className="my-[60px]" ref={section}>
+      <div className="mx-auto max-w-7xl py-6 px-4">
+        {/* Heading */}
+        <div className="text-center mb-10" ref={heading}>
+          <h1 className="text-4xl font-bold">What Our Client's Say</h1>
+          <p className="mt-3 text-lg text-gray-500">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
         </div>
-      </section>
-    </>
+
+        {/* Slider */}
+        <div ref={slider}>
+          <Slider {...settings}>
+            {testimonials.map((item, index) => (
+              <div key={index} className="px-3">
+                <div className="bg-white shadow-lg rounded-xl p-6 h-full">
+                  <p className="text-gray-500 text-lg text-center">
+                    {item.text}
+                  </p>
+
+                  <div className="flex justify-center mt-6">
+                    <img src={item.img} className="w-16 h-16 rounded-full" />
+                  </div>
+
+                  <div className="text-center mt-3">
+                    <h3 className="font-bold">{item.name}</h3>
+                    <p className="text-sm text-gray-500">{item.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+    </section>
   );
 };
