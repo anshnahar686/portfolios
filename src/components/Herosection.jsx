@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { use, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
-
+import hero_section from "../assets/hero_section.png";
 export const HeroSection = () => {
   const container = useRef(null);
   const counterRef = useRef(null);
@@ -90,7 +90,7 @@ export const HeroSection = () => {
           
           {/* Image */}
           <img
-            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            src={hero_section}
             className="hero-img max-w-sm rounded-lg shadow-2xl"
           />
 

@@ -3,7 +3,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import Slider from "react-slick";
-
+import userone from "../assets/userone.png"
+import usertwo from "../assets/usertwo.png"
+import userthree from '../assets/userthree.png'
+import userfour from '../assets/userfour.png'
+import userfive from '../assets/userfive.png'
 gsap.registerPlugin(ScrollTrigger);
 
 export const Testinomial = () => {
@@ -72,38 +76,38 @@ export const Testinomial = () => {
       text: "This dashboard has completely transformed how we manage our sales data. The validation rules prevent errors, and the interface is so intuitive that even new team members pick it up quickly. Truly a lifesaver for our business.",
       name: "John Deo",
       role: "Managing Director, BrightPath Solutions",
-      img: "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+      img: userone,
     },
     {
       text: "The export and analytics features are outstanding. We can now generate reports in seconds, and the clarity of the labels makes them easy to understand for non-technical staff. It’s exactly what we needed." ,
       name: "Priya Sharma",
       role: "CEO, BrightPath Solutions",
-      img: "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+      img: usertwo,
     },
     {
       text: "I appreciate how responsive the team was during development. They anticipated issues before they became problems and provided clear, business-friendly error messages. It’s rare to find such a balance of technical expertise and user focus. ",
       name: "Arjun Patel ",
       role: "Founder & CTO, Skyline Innovations",
-      img: "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+      img: userthree,
     },
     {
       text: "From schema design to deployment, everything was handled with precision. The sample test data they provided helped us stress-test the system before launch, which gave us confidence in its reliability.",
       name: "Sneha Kapoor",
       role: "Head of Operations, NextWave Technologies",
-      img: "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+      img: userfour,
     },
     {
       text: "I’ve worked with many tools, but this one stands out. The UI feels polished, the spacing and layout are consistent, and the backend constraints ensure compliance with GST and payment rules. It’s both robust and user-friendly.",
       name: "John Deo",
       role: "Director of Product Development, Vertex Solutions",
-      img: "https://img.daisyui.com/images/profile/demo/yellingcat@192.webp",
+      img: userfive,
     },
   ];
 
   return (
     <section className="my-[60px]" ref={section}>
       <div className="mx-auto max-w-7xl py-6 px-4">
-        {/* Heading */}
+      
         <div className="text-center mb-10" ref={heading}>
           <h1 className="text-4xl font-bold">What Our Client's Say</h1>
           <p className="mt-3 text-lg text-gray-500">

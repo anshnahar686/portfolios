@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import first from "../assets/toolxox-com-resizedimage.jpg";
+import first from "../assets/herosection.png";
 import { useRef } from "react";
 import gsap from "gsap";
 export const About = () => {
