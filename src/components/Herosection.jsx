@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { use, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
 import hero_section from "../assets/hero_section.png";
+import { motion } from "framer-motion";
 export const HeroSection = () => {
   const container = useRef(null);
   const counterRef = useRef(null);
@@ -78,6 +79,13 @@ export const HeroSection = () => {
           ease: "power1.out",
         }
       );
+       tl.fromTo(
+      ".hero-btn",
+      { opacity: 0, y: 20 },          // start hidden, slightly down
+      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.2 } 
+      // animate to visible, stagger each button
+    );
+
 
     },
     { scope: container }
@@ -120,12 +128,12 @@ export const HeroSection = () => {
             </p>
 
             <button className="hero-btn d--btn w-[210px] h-[45px] mx-4 rounded-xl bg-[#8186E7] text-white text-lg">
-              Get Started
-            </button>
+        <a href="#Services">Get Started</a>
+      </button>
+      <button className="hero-btn d--btn w-[210px] h-[45px] mx-4 rounded-xl bg-[#8186E7] text-white text-lg">
+      <a href="#contact">  Contact Me</a>
+      </button>
 
-            <button className="hero-btn d--btn w-[210px] h-[45px] mx-4 rounded-xl bg-[#8186E7] text-white text-lg">
-              Contact Me
-            </button>
           </div>
         </div>
       </div>

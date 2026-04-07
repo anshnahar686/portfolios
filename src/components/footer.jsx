@@ -65,6 +65,15 @@ export const Footer = () => {
     { icon: "ri-linkedin-box-fill", tooltip: "linkedin-box" },
     { icon: "ri-github-fill", tooltip: "github" },
   ];
+  const data =[
+     { name: "Home", link: "#herosection" },
+            { name: "About", link: "#about" },
+            { name: "Services", link: "#Services" },
+           
+            { name: "Projects", link: "#projects" },
+             { name: "Testimonials", link: "#testinomial" },
+             { name: "Contact", link: "#contact" }
+  ]
   return (
     <>
       <div className="bg-[#FBFBFB] mt-[120px] h-full" ref={section}>
@@ -74,20 +83,13 @@ export const Footer = () => {
           </h1>
 
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 mb-10">
-            {[
-              "Home",
-              "About",
-              "Services",
-              "Projects",
-              "Contactus",
-              "Testimonial",
-            ].map((item, index) => (
+            {data.map((item, index) => (
               <button
                 key={index}
                 className="text-lg md:text-xl text-[#F0E8E8CC] hover:text-white transition"
                 ref={(el) => (button.current[index] = el)}
               >
-                {item}
+               <a href={item.link}>{item.name}</a>
               </button>
             ))}
           </div>

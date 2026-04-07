@@ -1,14 +1,24 @@
 import { useGSAP } from "@gsap/react";
 import first from "../assets/herosection.png";
 import { useRef } from "react";
+import resume from "../assets/anshnaharresume.pdf"; // adjust path if needed
+
 import gsap from "gsap";
 export const About = () => {
+  const handleDownload = () => {
+  const link = document.createElement("a");
+  link.href = resume; // file path
+  link.download = "CV.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
   const main_section = useRef();
   const first_heading = useRef();
   const image_section = useRef();
   const download_button = useRef();
   const skill_cards=useRef()
-  console.log()
+  // console.log()
   useGSAP(
     () => {
       gsap.from(first_heading.current, {
@@ -20,7 +30,7 @@ export const About = () => {
           trigger: main_section.current,
           start: "top 60%",
           toggleActions: "play none none reverse",
-          markers: true,
+          markers: false,
         },
       });
       gsap.from(".underline", {
@@ -133,7 +143,7 @@ export const About = () => {
   );
   return (
     <>
-      <section className="py-12 bg-white" ref={main_section}>
+      <section className="py-12 bg-white" ref={main_section} id="about">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12" ref={first_heading}>
             <h1 className="text-4xl font-bold text-gray-800">Who I Am</h1>
@@ -170,6 +180,7 @@ export const About = () => {
               <button
                 className="mt-6 flex items-center gap-2 px-6 py-3 bg-indigo-500 text-white rounded-lg shadow-md hover:bg-indigo-600 transition"
                 ref={download_button}
+                onClick={handleDownload}
               >
                 Download CV
                 <i className="ri-file-download-line text-lg"></i>

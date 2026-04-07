@@ -29,7 +29,7 @@ export const Project = () => {
             trigger: section.current,
             start: "top 90%", // safer trigger
             toggleActions: "play none none reverse",
-            markers: true,
+            markers: false,
           },
         },
       );
@@ -48,7 +48,7 @@ export const Project = () => {
             trigger: section.current,
             start: "top 90%", // important change
             toggleActions: "play none none reverse",
-            markers: true,
+            markers: false,
           },
         },
       );
@@ -65,6 +65,8 @@ export const Project = () => {
         "The app provides a seamless platform for users to browse, search, and purchase books, while administrators can add, update, or remove book listings. It leverages MongoDB for storing book and user data, Express.js and Node.js for backend APIs and server logic, and React for building a dynamic, responsive frontend interface. ",
       image:
         book_store,
+        live:'https://bookstore-2-nsp7.onrender.com/',
+        source:'https://github.com/anshnahar686/bookstore.git'
     },
     {
       title: "Service App",
@@ -72,6 +74,8 @@ export const Project = () => {
         "The app allows users to browse, book, and manage services online, while service providers can list, update, and track their offerings. It uses MongoDB for storing service and user data, Express.js + Node.js for backend APIs and business logic, and React for building a responsive, user-friendly interface.",
       image:
         service_app,
+      live:'https://serverice-frontend.onrender.com/',
+      source:'https://github.com/anshnahar686/services.git'
     },
     {
       title: "Contact App",
@@ -79,6 +83,8 @@ export const Project = () => {
         "The app enables users to store, organize, and update contact information such as names, phone numbers, emails, and addresses. It uses MongoDB for secure data storage, Express.js + Node.js for backend APIs and server logic, and React for a clean, interactive frontend interface., and React for building a responsive, user-friendly",
       image:
         contact_us,
+        live:'https://contactus-imtn.onrender.com/contactus/',
+        source:'https://github.com/anshnahar686/contactus.git'
     },
      {
       title: "Student Api App",
@@ -86,6 +92,8 @@ export const Project = () => {
         "The app enables developers or institutions to create, read, update, and delete student records through RESTful APIs. It uses MongoDB to store student information, Express.js + Node.js to build and expose APIs, and React for a lightweight interface to interact with the data.",
       image:
         student_api,
+      live:'https://student-api-2-c36a.onrender.com/',
+      source:'https://github.com/anshnahar686/student_api.git'
     },
     {
       title: "School Management App",
@@ -93,6 +101,8 @@ export const Project = () => {
         "The app provides tools for managing students, teachers, classes, and administrative operations in one centralized system. It uses MongoDB for storing structured school data, Express.js + Node.js for backend APIs and logic, and React for an intuitive, interactive frontend interface.",
       image:
         school_management,
+        live:'#',
+      source:'#'
     },
     {
       title: "E-commerce",
@@ -100,12 +110,15 @@ export const Project = () => {
         "The app provides a digital marketplace where customers can explore product catalogs, add items to their cart, and complete secure checkouts, while administrators can manage inventory, orders, and user accounts. It uses MongoDB for storing product and user data, Express.js + Node.js for backend APIs ",
       image:
         ecommerce,
+        live:'#',
+      source:'#'
     },
   ];
   return (
     <section
       ref={section}
       className="pt-32 pb-20 px-6 min-h-screen bg-gray-100"
+      id="projects"
     >
       {/* Heading */}
       <div ref={heading}>
@@ -142,10 +155,10 @@ export const Project = () => {
 
                 <div className="flex gap-3 w-full">
                   <button className="border border-purple-500 text-purple-500 py-2 rounded-lg w-1/2 hover:bg-purple-500 hover:text-white transition">
-                    Source
+                    <a href={item.source} target="_blank" rel="noopener noreferrer">Source</a>
                   </button>
                   <button className="bg-purple-500 text-white py-2 rounded-lg w-1/2 hover:bg-purple-600 transition">
-                    Live
+                    <a href={item.live} target="_blank" rel="noopener noreferrer">Live</a>
                   </button>
                 </div>
               </div>

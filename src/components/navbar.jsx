@@ -114,10 +114,11 @@ export const Navbar = () => {
         >
           {[
             { name: "Home", link: "#herosection" },
-            { name: "About", link: "#projects" },
-            { name: "Services", link: "/services" },
-            { name: "Features", link: "/features" },
-            { name: "Projects", link: "/projects" },
+            { name: "About", link: "#about" },
+            { name: "Services", link: "#Services" },
+           
+            { name: "Projects", link: "#projects" },
+             { name: "Testimonials", link: "#testinomial" },
           ].map((item, i) => (
             <motion.li key={i} className="relative group" variants={linksVariants}>
               <motion.a
@@ -143,7 +144,7 @@ export const Navbar = () => {
             animate={buttonControls}
             whileHover="hover"
           >
-            Contact Me
+           <a href="#contact">Contact Me</a>
           </motion.button>
 
           <button className="md:hidden text-white text-3xl hover:scale-110 transition">

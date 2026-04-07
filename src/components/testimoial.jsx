@@ -105,7 +105,7 @@ export const Testinomial = () => {
   ];
 
   return (
-    <section className="my-[60px]" ref={section}>
+    <section className="my-[60px]" ref={section} id="testinomial">
       <div className="mx-auto max-w-7xl py-6 px-4">
       
         <div className="text-center mb-10" ref={heading}>

@@ -25,7 +25,7 @@ export const Contactus = () => {
           trigger: section.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          markers: true,
+          markers: false,
         },
       });
       gsap.from(secondheading.current, {
@@ -37,7 +37,7 @@ export const Contactus = () => {
           trigger: section.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          markers: true,
+          markers: false,
         },
       });
       gsap.from(left_side.current, {
@@ -48,7 +48,7 @@ export const Contactus = () => {
           trigger: section.current,
           start: "top 80%",
           toggleActions: "play play none reverse",
-          markers: true,
+          markers: false,
         },
       });
       gsap.from(right_side.current,{
@@ -60,7 +60,7 @@ export const Contactus = () => {
           trigger: section.current,
           start: "top 80%",
           toggleActions: "play play none reverse",
-          markers: true,
+          markers: false,
         },
       })
       gsap.from(paragraph.current, {
@@ -72,7 +72,7 @@ export const Contactus = () => {
           trigger: section.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          markers: true,
+          markers: false,
         },
       });
       details.current.forEach((el, i) => {
@@ -86,7 +86,7 @@ export const Contactus = () => {
           trigger: section.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          markers: true,
+          markers: false,
         },
       });
     });
@@ -102,7 +102,7 @@ formRef.current.forEach(element => {
           trigger: section.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          markers: true,
+          markers: false,
         },
       });
 });
@@ -115,7 +115,7 @@ gsap.from(buttonRef.current,{
           trigger: section.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          markers: true,
+          markers:false,
         },
 })
         
@@ -125,7 +125,7 @@ gsap.from(buttonRef.current,{
 console.log(details)
   return (
     <>
-      <section className="min-h-screen py-12 px-4 overflow-hidden" ref={section}>
+      <section className="min-h-screen py-12 px-4 overflow-hidden" ref={section} id="contact">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
        
           <div className="bg-white rounded-2xl shadow-xl p-10" ref={left_side}>

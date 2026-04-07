@@ -24,7 +24,7 @@ export const Services = () => {
           trigger: section.current,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          markers: true,
+          markers: false,
         },
       });
 
@@ -38,7 +38,7 @@ export const Services = () => {
           trigger: section.current,
           start: "top 70%",
           toggleActions: "play none none reverse",
-          markers: true,
+          markers: false,
         },
       });
       icons.current.forEach((ele) => {
@@ -50,7 +50,7 @@ export const Services = () => {
             trigger: section.current,
             start: "top 70%",
             toggleActions: "play none none reverse",
-            markers: true,
+            markers: false,
           },
 
           ease: "power4.out",
@@ -65,7 +65,7 @@ export const Services = () => {
             trigger: section.current,
             start: "top 70%",
             toggleActions: "play none none reverse",
-            markers: true,
+            markers: false,
           },
           ease: "power4.out",
         });
@@ -79,7 +79,7 @@ export const Services = () => {
             trigger: section.current,
             start: "top 70%",
             toggleActions: "play none none reverse",
-            markers: true,
+            markers: false,
           },
           ease: "power4.out",
           
